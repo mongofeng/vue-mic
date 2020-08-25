@@ -1,6 +1,13 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "clear": "lerna clean",
+    "ic": "lerna bootstrap"
+  },
+   "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "lerna": "^3.22.1"
   }
