@@ -58,6 +58,7 @@ Vue.config.productionTip = false;
 const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
+    // 没有挂载点默认挂载到body下
     render: (h) => h(App),
     router,
   },
@@ -66,6 +67,21 @@ const vueLifecycles = singleSpaVue({
 export const bootstrap = vueLifecycles.bootstrap;
 export const mount = vueLifecycles.mount;
 export const unmount = vueLifecycles.unmount;
+```
+
+
+### 激活的时候
+
+```html
+<!-- navbar激活的时候 -->
+<div id="single-spa-application:navbar"></div> 
+
+<!-- app1激活的时候 -->
+<div id="single-spa-application:app1"></div> 
+
+<!-- app2激活的时候 -->
+<div id="single-spa-application:app2"></div> 
+
 ```
 
 

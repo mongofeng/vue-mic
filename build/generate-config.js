@@ -1,15 +1,19 @@
 /** @format */
 const path = require('path')
-const argv = require('minimist')(process.argv.slice(2))
+// const argv = require('minimist')(process.argv.slice(2))
 
 module.exports = function(process, dirname) {
   const isProduction = process.env.NODE_ENV === 'production'
   const appName = process.env.VUE_APP_NAME
   const port = process.env.port
-  const basePath = argv['base-path'] || '/'
+  // const basePath = argv['base-path'] || '/'
+
+  const baseUrl = process.env.VUE_APP_BASE_URL
+
 
   return {
-    publicPath: isProduction ? `${basePath}${appName}/` : `http://localhost:${port}/`,
+    // publicPath: isProduction ? `${baseUrl}${appName}/` : `http://localhost:${port}/`,
+    publicPath: isProduction ? `${baseUrl}${appName}/` : `/`,
 
     outputDir: path.resolve(dirname, `../../dist/${appName}`),
 
@@ -56,6 +60,8 @@ module.exports = function(process, dirname) {
       // ])
 
       config.output.library(appName).libraryTarget('umd')
+
+      config.externals(['vue', 'vue-router'])  // 一定要引否则说没有注册
 
       if (isProduction) {
         // 打包目标文件加上 hash 字符串，禁止浏览器缓存
