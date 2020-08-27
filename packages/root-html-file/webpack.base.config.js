@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {apps} = require('./public/app.config.json')
-console.log(apps)
 module.exports = {
   entry: path.resolve(__dirname, './src/main.ts'),
   resolve: {
@@ -17,7 +16,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        include: path.resolve(__dirname, "./src"),
       }
     ]
   },
@@ -26,7 +25,6 @@ module.exports = {
       title: 'MyApp',
       template: path.resolve(__dirname, './public/index.html'),
       apps,
-      // apps: require('./public/app.config.json').apps
     })
   ]
   // output: {

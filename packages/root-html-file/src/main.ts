@@ -1,4 +1,4 @@
-import { PluginFunction } from 'vue'
+// import { PluginFunction } from 'vue'
 import { registerApp } from './utils/register'
 import 'systemjs'
 
@@ -11,9 +11,11 @@ async function bootstrap () {
     // System.import('element-ui'),
     // System.import('axios')
   ])
+  console.log(Vue)
+
 
   Vue.config.devtools = process.env.NODE_ENV === 'development'
-  Vue.use(VueRouter as PluginFunction<any>)
+  Vue.use(VueRouter as any)
   // Vue.use(Vuex as PluginFunction<any>)
   // Vue.use(ElementUI as PluginFunction<any>)
   // @ts-ignore
@@ -21,7 +23,8 @@ async function bootstrap () {
 
   try {
     // 读取应用配置并注册应用
-    const config = await System.import(`/apps.config.json`)
+    const config = await System.import(`/app.config.json`)
+    console.log(config)
     const { apps } = config.default
     apps && apps.forEach((app: AppConfig) => {
       const { commonsChunks: chunks } = app
