@@ -10,7 +10,6 @@
       {
         "imports": {
           <%for (var i in htmlWebpackPlugin.options.apps) {htmlWebpackPlugin.options.apps[i]%>
-
             "<%= htmlWebpackPlugin.options.apps[i].name %>":"<%=htmlWebpackPlugin.options.apps[i].main %>",
 
           <%}%>
