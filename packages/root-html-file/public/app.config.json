@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "name": "navbar",
+      "main": "http://localhost:8888/js/app.js",
+      "path": "/",
+      "commonsChunks": [],
+      "base": true,
+      "hash": true
+    },
+    {
+      "name": "app1",
+      "main": "http://localhost:8081/js/app.js",
+      "path": "/app1",
+      "commonsChunks": [],
+      "base": false,
+      "hash": true
+    },
+    {
+      "name": "app2",
+      "main": "http://localhost:8082/js/app.js",
+      "path": "/app2",
+      "commonsChunks": [],
+      "base": false,
+      "hash": true
+    }
+  ]
+}

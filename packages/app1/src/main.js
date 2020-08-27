@@ -9,6 +9,7 @@ Vue.config.productionTip = false;
 const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
+    // 没有挂载点默认挂载到body下
     render: (h) => h(App),
     router,
   },

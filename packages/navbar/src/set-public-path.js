@@ -1,3 +1,5 @@
 import { setPublicPath } from 'systemjs-webpack-interop'
 
-setPublicPath('navbar', 2)
+const appName = process.env.VUE_APP_NAME || ''
+
+setPublicPath(appName, 2)
