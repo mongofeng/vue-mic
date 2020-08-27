@@ -7,7 +7,12 @@
   "scripts": {
     "serve": "webpack-dev-server --config webpack.dev.config.js"
   },
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
   "devDependencies": {
+    "@types/webpack": "~4",
+    "@types/node": "^12.11.7",
     "@types/webpack-env": "^1.14.1",
     "@vue/cli-plugin-typescript": "^4.1.1",
     "@types/systemjs": "^6.1.0",

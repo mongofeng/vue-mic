@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {apps} = require('./public/app.config.json')
+console.log(apps)
 module.exports = {
   entry: path.resolve(__dirname, './src/main.ts'),
   resolve: {
@@ -22,8 +24,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'MyApp',
-      filename: path.resolve(__dirname, './public/index.html'),
-      apps: require('./public/app.config.json').apps
+      template: path.resolve(__dirname, './public/index.html'),
+      apps,
+      // apps: require('./public/app.config.json').apps
     })
   ]
   // output: {

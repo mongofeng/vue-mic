@@ -90,6 +90,10 @@ export const unmount = vueLifecycles.unmount;
 package.json必须加上version否则不会有node_modules
 
 
+### 2.tsconfig.json必须写include
+
+
 
 ## 参考文档
 - [lerna管理前端模块最佳实践](https://juejin.im/post/6844903568751722509)
+- [react + redux + webpack+typescript 环境搭建](https://juejin.im/post/6844904029772840974)
