@@ -71,7 +71,7 @@ export const unmount = vueLifecycles.unmount;
 
 
 ### 激活的时候
-
+> 会自动创建对应的html挂到body下
 ```html
 <!-- navbar激活的时候 -->
 <div id="single-spa-application:navbar"></div> 
@@ -83,6 +83,11 @@ export const unmount = vueLifecycles.unmount;
 <div id="single-spa-application:app2"></div> 
 
 ```
+
+
+## 问题
+### 1.'webpack-dev-server' 不是内部或外部命令，也不是可运行的程序
+package.json必须加上version否则不会有node_modules
 
 
 
