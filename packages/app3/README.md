@@ -71,3 +71,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - [2020 Create React App 开始一个UI组件库](https://juejin.im/post/6844904045862191118#heading-4)
 - [微前端config-overrides.js配置](https://gist.github.com/joeldenning/79f2592086ad132fae8ee5aae054c0b6)
 - [微前端react](https://single-spa.js.org/docs/faq/#create-react-app)
+- [Create React App无eject配置（react-app-rewired 和 customize-cra）](https://juejin.im/post/6844904016581754888#heading-7)
