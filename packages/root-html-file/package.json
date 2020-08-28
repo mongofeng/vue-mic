@@ -1,8 +1,6 @@
 {
   "name": "root-html-file",
-
   "version": "0.1.0",
-
   "private": true,
   "scripts": {
     "serve": "webpack-dev-server --config webpack.dev.config.js",
