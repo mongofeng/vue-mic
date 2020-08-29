@@ -7,7 +7,7 @@ app.use(history(
     logger: console.log.bind(console)
   }
 ));
-app.use(express.static(path.resolve(__dirname, './public')));
+app.use(express.static(path.resolve(__dirname, './dist')));
 
 app.listen(3333, function () {
   console.log('Example app listening on port 3000!');

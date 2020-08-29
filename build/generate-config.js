@@ -1,6 +1,7 @@
 /** @format */
 const path = require('path')
 // const argv = require('minimist')(process.argv.slice(2))
+const StatsPlugin = require('stats-webpack-plugin')
 
 module.exports = function(process, dirname) {
   const isProduction = process.env.NODE_ENV === 'production'
@@ -18,6 +19,8 @@ module.exports = function(process, dirname) {
     css: {
         extract: false
     },
+
+    productionSourceMap: false,
 
     outputDir: path.resolve(dirname, `../../dist/${appName}`),
 
@@ -44,6 +47,20 @@ module.exports = function(process, dirname) {
           'Access-Control-Allow-Origin': '*',
         },
       }
+
+      config.plugins.push(
+        new StatsPlugin('manifest.json', {
+          chunkModules: false,
+          entrypoints: true,
+          env: true,
+          source: false,
+          chunks: false,
+          modules: false,
+          assets: false,
+          children: false,
+          exclude: [/node_modules/]
+      }),
+      )
     },
 
     chainWebpack: config => {

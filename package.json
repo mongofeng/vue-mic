@@ -4,12 +4,14 @@
   "scripts": {
     "clear": "lerna clean",
     "ic": "lerna bootstrap",
-    "build": "lerna run build"
+    "build": "lerna run build && cd dist && node generate-app.js"
   },
    "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
+    "connect-history-api-fallback": "^1.6.0",
+    "express": "^4.17.1",
     "lerna": "^3.22.1"
   }
 }
