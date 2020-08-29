@@ -2,8 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const root = process.cwd()
 console.log(`当前工作目录是: ${root}`);
-
-
 function readDir(root) {
   const manifests = []
   const files = fs.readdirSync(root)
@@ -18,12 +16,8 @@ function readDir(root) {
     }
 
   })
-  console.log('子文件夹为')
-  console.log(manifests)
-
   return manifests
 }
-
 
 
 function readManifests(files) {
@@ -31,7 +25,6 @@ function readManifests(files) {
   files.forEach(i => {
     const manifest = path.resolve(i, './manifest.json')
     if (fs.existsSync(manifest)) {
-      console.log('该路径已存在');
       const { publicPath, entrypoints: { app: { assets } } } = require(manifest)
       const name = publicPath.slice(1, -1)
       jsons[name] = `${publicPath}${assets}`
@@ -83,9 +76,7 @@ const dir = readDir(root)
 
 const jsons = readManifests(dir)
 
-
 generateFile(jsons)
-
 
 console.log('生成配置文件成功')
 

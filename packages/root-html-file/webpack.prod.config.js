@@ -7,7 +7,9 @@ const { merge } = require('webpack-merge')
 
 module.exports = merge(baseWebpackConfig, {
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['./*.js', './*.html', './*.json'],
+    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, './public') },
