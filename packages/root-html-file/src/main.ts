@@ -42,7 +42,7 @@ async function bootstrap () {
     // 切换子系统的时候给body加上对应子系统的 class namespace
     window.addEventListener('single-spa:app-change', () => {
       const app = singleSpa.getMountedApps().pop();
-      // const isApp = /^app-\w+$/.test(app);
+      const isApp = /^app-\w+$/.test(app);
       if (app) document.body.className = app;
     });
 

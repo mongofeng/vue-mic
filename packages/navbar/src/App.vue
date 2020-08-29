@@ -1,9 +1,8 @@
 <template>
   <div id="navbar-app">
-    <div id="nav">
+    <div class="nav">
       <router-link to="/app1">App1</router-link> |
-      <router-link to="/app2">App2</router-link>  |
-      <router-link to="/app3">App3</router-link>
+      <router-link to="/app2">App2</router-link> 
     </div>
     <router-view/>
   </div>
@@ -17,11 +16,11 @@
   text-align: center;
   color: #2c3e50;
 }
-#nav {
+.nav {
   padding: 30px;
 }
 
-#nav a {
+.nav a {
   font-weight: bold;
   color: #2c3e50;
 }

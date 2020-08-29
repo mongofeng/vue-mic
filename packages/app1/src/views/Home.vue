@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div>
-      <img alt="Vue logo" src="../assets/logo.png">
+    <div class="text">
+      teesss
     </div>
     <router-link to="/app2/about">App2's about page</router-link>
   </div>
@@ -18,3 +18,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.home {
+  color: rebeccapurple;
+}
+.text {
+  color: green;
+}
+</style>
