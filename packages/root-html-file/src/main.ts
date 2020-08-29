@@ -1,5 +1,5 @@
 
-import { registerApp } from './utils/register'
+import { registerApp } from './utils/index'
 import 'systemjs'
 
 async function bootstrap () {
