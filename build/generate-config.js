@@ -12,8 +12,7 @@ module.exports = function(process, dirname) {
 
 
   return {
-    // publicPath: isProduction ? `${baseUrl}${appName}/` : `http://localhost:${port}/`,
-    publicPath: isProduction ? `${baseUrl}${appName}/` : `/`,
+    publicPath: isProduction ? `${baseUrl}${appName}/` : `http://localhost:${port}/`,
 
     outputDir: path.resolve(dirname, `../../dist/${appName}`),
 
