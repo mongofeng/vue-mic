@@ -60,7 +60,7 @@ module.exports = function(process, dirname) {
 
       config.output.library(appName).libraryTarget('umd')
 
-      config.externals(['vue', 'vue-router'])  // 一定要引否则说没有注册
+      config.externals(['vue', 'vue-router', 'vuex'])  // 一定要引否则说没有注册
 
       if (isProduction) {
         // 打包目标文件加上 hash 字符串，禁止浏览器缓存

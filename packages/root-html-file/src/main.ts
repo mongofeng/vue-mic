@@ -1,25 +1,25 @@
-// import { PluginFunction } from 'vue'
+
 import { registerApp } from './utils/register'
 import 'systemjs'
 
 async function bootstrap () {
-  const [singleSpa, Vue, VueRouter] = await Promise.all([
+  const [singleSpa, Vue, VueRouter, Vuex] = await Promise.all([
     System.import('single-spa'),
     System.import('vue'),
     System.import('vue-router'),
-    // System.import('vuex'),
-    // System.import('element-ui'),
-    // System.import('axios')
+    System.import('vuex'),
   ])
   console.log(Vue)
 
 
   Vue.config.devtools = process.env.NODE_ENV === 'development'
   Vue.use(VueRouter as any)
-  // Vue.use(Vuex as PluginFunction<any>)
-  // Vue.use(ElementUI as PluginFunction<any>)
+  Vue.use(Vuex as any)
+
   // @ts-ignore
   Vue.prototype.$eventBus = new Vue()
+  // @ts-ignore
+  window.rootStore = new Vuex.Store() // 全局注册唯一的vuex, 供子应用的共享
 
   try {
     // 读取应用配置并注册应用
