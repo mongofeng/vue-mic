@@ -30,7 +30,7 @@ async function bootstrap () {
       const { commonsChunks: chunks } = app
       if (chunks && chunks.length) {
         Promise.all(chunks.map(chunk => {
-          return System.import(`/${app.name}/js/${chunk}.js`)
+          return System.import(`/${app.name}/js/${chunk}.js`) // 加载完所有的异步chunk代码
         })).then(() => {
           registerApp(singleSpa, app)
         })

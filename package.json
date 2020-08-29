@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "clear": "lerna clean",
-    "ic": "lerna bootstrap"
+    "ic": "lerna bootstrap",
+    "build": "lerna run build"
   },
    "workspaces": [
     "packages/*"
