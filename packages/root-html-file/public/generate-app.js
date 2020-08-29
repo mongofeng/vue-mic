@@ -4,7 +4,7 @@ const root = process.cwd()
 console.log(`当前工作目录是: ${root}`);
 
 
-function readDir (root) {
+function readDir(root) {
   const manifests = []
   const files = fs.readdirSync(root)
   console.log(files)
@@ -16,9 +16,9 @@ function readDir (root) {
     if (is_direc) {
       manifests.push(filePath)
     }
-  
-  })
 
+  })
+  console.log('子文件夹为')
   console.log(manifests)
 
   return manifests
@@ -26,27 +26,27 @@ function readDir (root) {
 
 
 
-function readManifests (files) {
+function readManifests(files) {
   const jsons = {}
   files.forEach(i => {
-    const manifest = path.resolve(i, './manifest.json' )
+    const manifest = path.resolve(i, './manifest.json')
     if (fs.existsSync(manifest)) {
       console.log('该路径已存在');
-      const {publicPath, entrypoints: {app: {assets}}} = require(manifest)
+      const { publicPath, entrypoints: { app: { assets } } } = require(manifest)
       const name = publicPath.slice(1, -1)
       jsons[name] = `${publicPath}${assets}`
     }
   })
 
   return jsons
-  
+
 }
 
 
 
-function generateFile (jsons) {
-  const {apps} = require('./app.config.json')
-  const {imports} = require('./importmap.json')
+function generateFile(jsons) {
+  const { apps } = require('./app.config.json')
+  const { imports } = require('./importmap.json')
 
 
   Object.keys(jsons).forEach(key => {
@@ -54,12 +54,13 @@ function generateFile (jsons) {
   })
 
   apps.forEach(i => {
-    const {name} = i
+    const { name } = i
 
     if (jsons[name]) {
       i.main = jsons[name]
     }
   })
+
 
 
   fs.writeFileSync('./importmap.json', JSON.stringify(
