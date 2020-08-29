@@ -582,7 +582,7 @@ lerna run build
 ```shell
 cd dist && node generate-app.js
 ```
-文章中的完整demo文件地址
+文章中的完整[demo](https://github.com/mongofeng/vue-mic/tree/develop)文件地址
 
 
 
