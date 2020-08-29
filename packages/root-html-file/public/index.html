@@ -3,22 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Coexisting Vue Microfrontends</title>
+    <title>Vue-Microfrontends</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="importmap-type" content="systemjs-importmap">
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          <%for (var i in htmlWebpackPlugin.options.apps) {htmlWebpackPlugin.options.apps[i]%>
-            "<%= htmlWebpackPlugin.options.apps[i].name %>":"<%=htmlWebpackPlugin.options.apps[i].main %>",
+    <!-- 配置文件注意写成绝对路径：/开头，否则访问子项目的时候重定向的index.html，相对目录会出错 -->
+   <script type="systemjs-importmap" src="importmap.json"></script>
 
-          <%}%>
-          "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js",
-          "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
-          "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js"
-        }
-      }
-    </script>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js" as="script" crossorigin="anonymous" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" as="script" crossorigin="anonymous" />
     
@@ -34,47 +24,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/use-default.min.js"></script>
     <!-- systemjs的包 -->
 
-    <!-- 可视化的图 -->
-    <!-- <script src="https://unpkg.com/import-map-overrides@1.7.2/dist/import-map-overrides.js"></script> -->
+    <style rel="stylesheet">
+      .single-spa-wrap {
+        position: absolute;
+        left: 214px;
+        top: 126px;
+        right: 14px;
+        bottom: 14px;
+      }
+  
+      .side-bar-collapsed .single-spa-wrap {
+        left: 96px;
+      }
+  
+      .single-spa-wrap.application-mounted {
+        z-index: 0;
+      }
+  
+      .single-spa-application {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        opacity: 0;
+        transform: translateX(20px);
+        overflow: auto;
+        transition: opacity .3s ease-out, transform .3s ease-out;
+      }
+  
+      .single-spa-application.application-mounting {
+        position: static;
+        transform: translateX(0);
+        opacity: 1;
+      }
+  
+      .frame .single-spa-wrap {
+        z-index: -1;
+      }
+    </style>
   </head>
   <body>
-    <!-- <script>
-      (function() {
-        localStorage.setItem('overrides-ui',true);
-        Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router')]).then(function (modules) {
-          var singleSpa = modules[0];
-          var Vue = modules[1];
-          var VueRouter = modules[2];
-
-          Vue.use(VueRouter)
-
-          singleSpa.registerApplication(
-            'navbar',
-            () => System.import('navbar'),
-            location => true
-          );
-
-          singleSpa.registerApplication(
-            'app1',
-            () => System.import('app1'),
-            location => location.pathname.startsWith('/app1')
-          )
-
-          singleSpa.registerApplication(
-            'app2',
-            () => System.import('app2'),
-            location => location.pathname.startsWith('/app2')
-          )
-
-          singleSpa.start();
-        })
-      })()
-
-  
-    </script> -->
-    <!-- See https://github.com/joeldenning/import-map-overrides#user-interface  -->
-    <!-- 可视化的图 -->
-    <!-- <import-map-overrides-full show-when-local-storage="overrides-ui" ></import-map-overrides-full> -->
+    <div id="root"></div>
+    <div id="wrap" class="single-spa-wrap"></div>
 
   </body>
 </html>

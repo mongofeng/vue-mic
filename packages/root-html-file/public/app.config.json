@@ -23,14 +23,6 @@
       "commonsChunks": [],
       "base": false,
       "hash": true
-    },
-    {
-      "name": "app3",
-      "main": "http://localhost:8083/js/app.js",
-      "path": "/app3",
-      "commonsChunks": [],
-      "base": false,
-      "hash": true
     }
   ]
 }

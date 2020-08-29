@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "navbar": "http://localhost:8888/js/app.js",
+    "app1": "http://localhost:8081/js/app.js",
+    "app2": "http://localhost:8082/js/app.js",
+    "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js",
+    "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
+    "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js",
+    "vuex": "https://cdn.jsdelivr.net/npm/vuex@3.1.2/dist/vuex.min.js"
+  }
+}
