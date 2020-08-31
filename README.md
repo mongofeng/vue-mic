@@ -584,6 +584,45 @@ cd dist && node generate-app.js
 ```
 文章中的完整demo文件地址
 
+## lerna
+```shell
+mkdir lerna-project & cd lerna-project
+
+# 初始化
+lerna init
+
+mkdir lerna-core & npm init -y
+
+mkdir lerna-popular & npm init -y
+
+
+# npm i axios 所有包都添加axios
+lerna add axios 
+
+# cd lerna-popular & npm i axios
+lerna add axios --scope=lerna-popular
+
+# lerna-popular 引用lerna-core 给包lerna-popularx添加lerna-core依赖
+
+lerna add lerna-core --scope=lerna-popular
+
+# npm i 下载依赖包或者生成本地软连接
+lerna bootstrap
+
+# 发布包所有
+lerna publish
+
+
+lerna list
+
+# 清除所有的包
+lerna clean
+
+
+# 创建包
+lerna create packageName [loc]
+```
+
 
 
 ## 参考文档
